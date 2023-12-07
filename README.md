@@ -16,7 +16,9 @@ This Python script downloads all the attachments from a Trello card in a batch, 
 2. Choose a JSON file that contains the Trello card data. Make sure that the file is in the correct format (JSON).
 3. The progress bar shows the progress of the download process, and the output box displays messages about the status of each download.
 4. Once the download is completed, you will find all the downloaded attachments stored in the 'attachments' directory.
-
+<p align="center">
+  <img src="https://github.com/SeyedEhsanHosseini/tcad/blob/main/assets/TCAD.gif">
+</p>
 ## How to Contribute
 
 If you want to contribute to this project, you can fork the repository and submit a pull request with your changes.
