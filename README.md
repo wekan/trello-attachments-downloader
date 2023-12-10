@@ -19,6 +19,7 @@ This Python script downloads all the attachments from a Trello card in a batch, 
 <p align="center">
   <img src="https://github.com/SeyedEhsanHosseini/tcad/blob/main/assets/TCAD.gif">
 </p>
+
 ## How to Contribute
 
 If you want to contribute to this project, you can fork the repository and submit a pull request with your changes.
