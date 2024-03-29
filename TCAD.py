@@ -148,22 +148,22 @@ class MainWindow(QMainWindow):
         #main_layout.addWidget(self.save_checkbox)
 
         # Delete Attachments checkbox
-        #self.delete_attachments = QCheckBox("Delete all attachments from card after download. (Except last")
-        #self.num_attachments = QSpinBox()
-        #self.num_attachments.setEnabled(False)
-        #self.num_attachments.setFixedWidth(45)
+        self.delete_attachments = QCheckBox("Delete all attachments from card after download. (Except last")
+        self.num_attachments = QSpinBox()
+        self.num_attachments.setEnabled(False)
+        self.num_attachments.setFixedWidth(45)
 
         # Connect the checkbox and the spinbox
-        #self.delete_attachments.stateChanged.connect(lambda state: self.num_attachments.setEnabled(state))
+        self.delete_attachments.stateChanged.connect(lambda state: self.num_attachments.setEnabled(state))
         
-        #num_attachments_layout = QHBoxLayout()
+        num_attachments_layout = QHBoxLayout()
 
-        #num_attachments_layout.addWidget(self.delete_attachments)
-        #num_attachments_layout.addWidget(self.num_attachments)
-        #num_attachments_layout.addWidget(QLabel("attachments.)"))
-        #num_attachments_layout.addStretch()  # Add a stretch to the right
+        num_attachments_layout.addWidget(self.delete_attachments)
+        num_attachments_layout.addWidget(self.num_attachments)
+        num_attachments_layout.addWidget(QLabel("attachments.)"))
+        num_attachments_layout.addStretch()  # Add a stretch to the right
   
-        #main_layout.insertLayout(main_layout.indexOf(self.num_attachments), num_attachments_layout)
+        main_layout.insertLayout(main_layout.indexOf(self.num_attachments), num_attachments_layout)
 
         # Create a Choose button and add to layout
         button = QPushButton("3) Choose a Trello JSON file, then downloading to attachments directory starts")
@@ -232,7 +232,7 @@ class MainWindow(QMainWindow):
 
             total_urls = len(urls)
 
-            api_key = self.api_key
+            api_key = self.api_key_input.text()
             api_token = self.api_token_input.text()
 
             self.progress_bar.setMaximum(100)
