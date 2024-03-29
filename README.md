@@ -1,8 +1,9 @@
 # Trello Card Attachments Downloader (TCAD)
 
-<p align="center">
-  <img src="https://github.com/SeyedEhsanHosseini/tcad/blob/main/assets/TCAD.png">
-</p>
+- Originally from https://github.com/SeyedEhsanHosseini/tcad
+- xet7 changed:
+  - UI simpler: Only necessary features. Clearer steps.
+  - Not require any 3rd party anymore.
 
 ### Download all the attachments from a Trello card in a batch.
 
@@ -12,13 +13,8 @@ This Python script downloads all the attachments from a Trello card in a batch, 
 
 ## How to Use
 
-1. Fill in the API Token field and start the download process by choosing a JSON file.
-2. Choose a JSON file that contains the Trello card data. Make sure that the file is in the correct format (JSON).
-3. The progress bar shows the progress of the download process, and the output box displays messages about the status of each download.
-4. Once the download is completed, you will find all the downloaded attachments stored in the 'attachments' directory.
-<p align="center">
-  <img src="https://github.com/SeyedEhsanHosseini/tcad/blob/main/assets/TCAD.gif">
-</p>
+1. Add `Personal Key` and below it manually created `Token`
+2. Click button to select Trello JSON file. Then downloading starts to `attachments` directory.
 
 ## How to Contribute
 
@@ -31,11 +27,28 @@ This script requires the following dependencies:
 - PyQt5
 - requests
 
-
-You can install these dependencies using pip:
+### pip
 
 ```
 pip install -r requirements.txt
+
+python3 TCAD.py
+```
+
+### Debian
+
+```
+sudo apt -y install python3-installer python3-requests python-pyqt5
+
+python3 TCAD.py
+```
+
+### Fedora
+
+```
+sudo dnf -y install python3-installer python3-requests python3-pyqt5-sip
+
+python3 TCAD.py
 ```
 
 ## License
