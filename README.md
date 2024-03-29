@@ -4,6 +4,7 @@
 - xet7 changed:
   - UI simpler: Only necessary features. Clearer steps.
   - Not require any 3rd party anymore.
+  - Added install info for various operating systems.
 
 ### Download all the attachments from a Trello card in a batch.
 
@@ -27,18 +28,28 @@ This script requires the following dependencies:
 - PyQt5
 - requests
 
-### pip
+### Windows
 
 ```
-pip install -r requirements.txt
+choco install python3 git
 
-python3 TCAD.py
+git clone https://github.com/wekan/trello-attachments-downloader
+
+cd trello-attachments-downloader
+
+pip install requests pyinstaller PyQt5
+
+python TCAD.py
 ```
 
-### Debian
+### Debian/Ubuntu/Mint
 
 ```
-sudo apt -y install python3-installer python3-requests python-pyqt5
+sudo apt -y install python3-installer python3-requests python-pyqt5 git
+
+git clone https://github.com/wekan/trello-attachments-downloader
+
+cd trello-attachments-downloader
 
 python3 TCAD.py
 ```
@@ -46,7 +57,23 @@ python3 TCAD.py
 ### Fedora
 
 ```
-sudo dnf -y install python3-installer python3-requests python3-pyqt5-sip
+sudo dnf -y install python3-installer python3-requests python3-pyqt5-sip git
+
+git clone https://github.com/wekan/trello-attachments-downloader
+
+cd trello-attachments-downloader
+
+python3 TCAD.py
+```
+
+### Mac
+
+```
+brew install python-idna python-requests pyqt@5
+
+git clone https://github.com/wekan/trello-attachments-downloader
+
+cd trello-attachments-downloader
 
 python3 TCAD.py
 ```
