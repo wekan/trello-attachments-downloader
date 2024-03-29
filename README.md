@@ -6,6 +6,8 @@
 
 This Python script downloads all the attachments from a Trello board in a batch, rather than downloading them individually.
 
+Issue about importing from Trello to WeKan: https://github.com/wekan/wekan/issues/4877#issuecomment-2026572349
+
 - Originally from https://github.com/SeyedEhsanHosseini/tcad
 - xet7 changed:
   - UI simpler: Only necessary features. Clearer steps.
