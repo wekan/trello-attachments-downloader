@@ -1,6 +1,6 @@
 # Trello Card Attachments Downloader (TCAD)
 
-<img src="https://github.com/wekan/trello-attachments-downloader/blob/main/assets/screenshot.png?raw=true" width="60%" alt="Screenshot" />
+<img src="https://github.com/wekan/trello-attachments-downloader/blob/main/assets/screenshot.png?raw=true" width="80%" alt="Screenshot" />
 
 - Originally from https://github.com/SeyedEhsanHosseini/tcad
 - xet7 changed:
