@@ -109,7 +109,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.api_key = '0d15c286960fdaa9fec3df41c0abb6f5'
+        self.api_key = ''
         self.api_token = ''
 
         central_widget = QWidget(self)
@@ -117,49 +117,56 @@ class MainWindow(QMainWindow):
         # Create layout for main window
         main_layout = QVBoxLayout()
 
-        label = QLabel("Fill in the API Token field then start the download process by choosing a JSON file through the button 'Choose a JSON file'.")
-        main_layout.addWidget(label)
-
+        #label = QLabel("1) From https://trello.com/app-key 'Personal Key':")
+        #main_layout.addWidget(label)
 
         # Create hyperlink button and add to layout
-        button_layout = QHBoxLayout()
-        button = QPushButton("Don't have a token? Click here to get one.")
-        button.clicked.connect(lambda: QDesktopServices.openUrl(QUrl("https://trello.com/1/authorize?expiration=never&scope=read,write,account&response_type=token&key=0d15c286960fdaa9fec3df41c0abb6f5")))
-        button_layout.addWidget(button)
-        main_layout.addLayout(button_layout)
+        #button_layout = QHBoxLayout()
+        #button = QPushButton("Don't have a token? Click here to get one.")
+        #button.clicked.connect(lambda: QDesktopServices.openUrl(QUrl("https://trello.com/1/authorize?expiration=never&scope=read,write,account&response_type=token&key=0d15c286960fdaa9fec3df41c0abb6f5")))
+        #button_layout.addWidget(button)
+        #main_layout.addLayout(button_layout)
 
-        # Create input fields for API key and token
-        api_layout = QVBoxLayout()
-        api_layout.addWidget(QLabel("API Token:"))
+        # Create input field for API key
+        api_key_layout = QVBoxLayout()
+        api_key_layout.addWidget(QLabel("1) Personal Key, from https://trello.com/app-key"))
+        self.api_key_input = QLineEdit()
+        self.api_key_input.setEchoMode(QLineEdit.Password)
+        api_key_layout.addWidget(self.api_key_input)
+        main_layout.addLayout(api_key_layout)
+
+        # Create input field for API token
+        api_token_layout = QVBoxLayout()
+        api_token_layout.addWidget(QLabel("2) Personal Token, from https://trello.com/app-key, below Personal Key, you can manually generate a 'Token' <= Click"))
         self.api_token_input = QLineEdit()
         self.api_token_input.setEchoMode(QLineEdit.Password)
-        api_layout.addWidget(self.api_token_input)
-        main_layout.addLayout(api_layout)
+        api_token_layout.addWidget(self.api_token_input)
+        main_layout.addLayout(api_token_layout)
 
         # Create save checkbox
-        self.save_checkbox = QCheckBox("Save API credentials")
-        main_layout.addWidget(self.save_checkbox)
+        #self.save_checkbox = QCheckBox("Save API credentials")
+        #main_layout.addWidget(self.save_checkbox)
 
         # Delete Attachments checkbox
-        self.delete_attachments = QCheckBox("Delete all attachments from card after download. (Except last")
-        self.num_attachments = QSpinBox()
-        self.num_attachments.setEnabled(False)
-        self.num_attachments.setFixedWidth(45)
+        #self.delete_attachments = QCheckBox("Delete all attachments from card after download. (Except last")
+        #self.num_attachments = QSpinBox()
+        #self.num_attachments.setEnabled(False)
+        #self.num_attachments.setFixedWidth(45)
 
         # Connect the checkbox and the spinbox
-        self.delete_attachments.stateChanged.connect(lambda state: self.num_attachments.setEnabled(state))
+        #self.delete_attachments.stateChanged.connect(lambda state: self.num_attachments.setEnabled(state))
         
-        num_attachments_layout = QHBoxLayout()
+        #num_attachments_layout = QHBoxLayout()
 
-        num_attachments_layout.addWidget(self.delete_attachments)
-        num_attachments_layout.addWidget(self.num_attachments)
-        num_attachments_layout.addWidget(QLabel("attachments.)"))
-        num_attachments_layout.addStretch()  # Add a stretch to the right
+        #num_attachments_layout.addWidget(self.delete_attachments)
+        #num_attachments_layout.addWidget(self.num_attachments)
+        #num_attachments_layout.addWidget(QLabel("attachments.)"))
+        #num_attachments_layout.addStretch()  # Add a stretch to the right
   
-        main_layout.insertLayout(main_layout.indexOf(self.num_attachments), num_attachments_layout)
+        #main_layout.insertLayout(main_layout.indexOf(self.num_attachments), num_attachments_layout)
 
         # Create a Choose button and add to layout
-        button = QPushButton("Choose a JSON file")
+        button = QPushButton("3) Choose a Trello JSON file, then downloading to attachments directory starts")
         button.clicked.connect(self.download_attachments)
         main_layout.addWidget(button)
 
@@ -191,12 +198,12 @@ class MainWindow(QMainWindow):
 
        
         # Load saved credentials from QSettings
-        settings = QSettings("Trello-PowerUps", "TCAD")
-        self.api_token = settings.value('api_token')
-        if self.api_token:
-            self.api_token_input.setText(self.api_token)
-
-        self.show()
+        #settings = QSettings("Trello-PowerUps", "TCAD")
+        #self.api_token = settings.value('api_token')
+        #if self.api_token:
+        #    self.api_token_input.setText(self.api_token)
+        #
+        #self.show()
 
     def __del__(self):
         self.download_thread.quit()
@@ -204,9 +211,9 @@ class MainWindow(QMainWindow):
             
     def download_attachments(self):
         # Save API credentials in QSettings if checkbox is checked
-        if self.save_checkbox.isChecked():
-            settings = QSettings("Trello-PowerUps", "TCAD")
-            settings.setValue('api_token', self.api_token_input.text())
+        #if self.save_checkbox.isChecked():
+        #    settings = QSettings("Trello-PowerUps", "TCAD")
+        #    settings.setValue('api_token', self.api_token_input.text())
 
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
@@ -231,7 +238,7 @@ class MainWindow(QMainWindow):
             self.progress_bar.setMaximum(100)
             self.progress_bar.setValue(0)
 
-            self.download_thread = DownloadThread(urls, Card_name, api_key, api_token, self)  
+            self.download_thread = DownloadThread(urls, Card_name, api_key, api_token, self)
             self.download_thread.progress_updated.connect(lambda d: self.progress_bar.setValue(int((d / total_urls) * 100)))
             self.download_thread.message_updated.connect(self.output_textbox.append)
             self.download_thread.finished.connect(lambda: button.setText("Done!"))
