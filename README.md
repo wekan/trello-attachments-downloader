@@ -16,6 +16,7 @@ This Python script downloads all the attachments from a Trello board in a batch,
 
 1. Add `Personal Key` and below it manually created `Token`
 2. Click button to select Trello JSON file. Then downloading starts to `attachments` directory.
+3. For additional Trello JSON files, click DONE button, and load next Trello JSON files. Then downloading attachments of that board starts.
 
 ## How to Contribute
 
