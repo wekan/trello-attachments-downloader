@@ -2,17 +2,15 @@
 
 <img src="https://github.com/wekan/trello-attachments-downloader/blob/main/assets/screenshot-win.png?raw=true" width="100%" alt="Screenshot" />
 
+## Introduction
+
+This Python script downloads all the attachments from a Trello board in a batch, rather than downloading them individually.
+
 - Originally from https://github.com/SeyedEhsanHosseini/tcad
 - xet7 changed:
   - UI simpler: Only necessary features. Clearer steps.
   - Not require any 3rd party anymore.
   - Added install info for various operating systems.
-
-### Download all the attachments from a Trello card in a batch.
-
-## Introduction
-
-This Python script downloads all the attachments from a Trello card in a batch, rather than downloading them individually. You can also choose to delete the attachments from the card after downloading them (you can make an exception for the last N attachments).
 
 ## How to Use
 
