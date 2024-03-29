@@ -148,7 +148,7 @@ class MainWindow(QMainWindow):
         #main_layout.addWidget(self.save_checkbox)
 
         # Delete Attachments checkbox
-        self.delete_attachments = QCheckBox("Delete all attachments from card after download. (Except last")
+        self.delete_attachments = QCheckBox("Delete all attachments from board after download. (Except last")
         self.num_attachments = QSpinBox()
         self.num_attachments.setEnabled(False)
         self.num_attachments.setFixedWidth(45)
