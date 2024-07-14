@@ -48,7 +48,7 @@ python TCAD.py
 ### Debian/Ubuntu/Mint
 
 ```
-sudo apt -y install python3-installer python3-requests python-pyqt5 git
+sudo apt -y install python3-installer python3-requests python3-pyqt5 git
 
 git clone https://github.com/wekan/trello-attachments-downloader
 
