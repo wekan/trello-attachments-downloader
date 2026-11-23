@@ -5,11 +5,17 @@ on:
     tags:
       - 'v*' 
 
+# Read-only by default; the two jobs below write the GitHub Release and say so.
+permissions:
+  contents: read
+
 jobs:
 
   createrelease:
     name: Create Release
     runs-on: [ubuntu-latest]
+    permissions:
+      contents: write
     steps:
     - name: Create Release
       id: create_release
@@ -32,6 +38,8 @@ jobs:
   build:
     name: Build packages
     needs: createrelease
+    permissions:
+      contents: write
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
